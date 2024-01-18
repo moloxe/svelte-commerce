@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_APP_NAME, PUBLIC_CONTACT_LINK } from '$env/static/public';
 	import '../app.css';
+	import '../theme.css';
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';
 	export let data;
 	$: categories = data.categories;
