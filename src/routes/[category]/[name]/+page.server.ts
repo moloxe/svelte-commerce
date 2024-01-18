@@ -1,0 +1,11 @@
+import { products } from '$lib/data/products';
+import { error } from '@sveltejs/kit';
+import type { PageServerLoadEvent } from './$types';
+
+export async function load({ params }: PageServerLoadEvent) {
+	const { category, name } = params;
+	const path = `/${category}/${name}`;
+	const product = products.find((p) => p.path === path);
+	if (!product) return error(404);
+	return { product };
+}
