@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply text-[rgb(0,0,0)] bg-neutral-100
+		 dark:text-neutral-100 dark:bg-[rgb(0,0,0)];
+	}
+	*,
+	::after,
+	::before {
+		@apply border-[rgb(0,0,0)] dark:border-neutral-100;
+	}
+}
+
+@layer components {
+	.bg-primary {
+		@apply bg-neutral-100 dark:bg-[rgb(0,0,0)];
+	}
+	.bg-contrast {
+		@apply bg-[rgb(0,0,0)] dark:bg-neutral-100;
+	}
+	.text-primary {
+		@apply text-neutral-100 dark:text-[rgb(0,0,0)];
+	}
+	.text-contrast {
+		@apply text-[rgb(0,0,0)] dark:text-neutral-100;
+	}
+	.text-disabled {
+		@apply text-gray-500;
+	}
+}
