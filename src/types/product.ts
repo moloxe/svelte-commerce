@@ -17,3 +17,8 @@ export type Product = {
 		};
 	};
 };
+
+export type PartialProduct = Pick<
+	Product,
+	'name' | 'category' | 'description' | 'photos' | 'price'
+>;
