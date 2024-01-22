@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '$lib/plugins';
 	import '../app.css';
 	import '../theme.css';
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';

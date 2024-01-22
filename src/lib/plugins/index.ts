@@ -1,0 +1,1 @@
+// Plugin file for templating
