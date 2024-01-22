@@ -1,20 +1,18 @@
 <script lang="ts">
-	import { PUBLIC_APP_NAME, PUBLIC_CONTACT_LINK } from '$env/static/public';
 	import '../app.css';
 	import '../theme.css';
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';
+	import { WEB_NAME, CONTACT_LINK } from '$lib/data/web-info';
 	export let data;
 	$: categories = data.categories;
 	$: curProductName = data.curProductName;
 	$: curCategory = data.curCategory;
 	$: curCategorySlug = data.curCategorySlug;
-
-	const APP_NAME = PUBLIC_APP_NAME ?? 'Inicio';
 </script>
 
 <svelte:head>
 	<title>
-		{`${curProductName || curCategory ? `${curProductName ?? curCategory} | ` : ''}${APP_NAME}`}
+		{`${curProductName || curCategory ? `${curProductName ?? curCategory} | ` : ''}${WEB_NAME}`}
 	</title>
 </svelte:head>
 
@@ -25,7 +23,7 @@
 		items-end justify-between
 	`}
 >
-	<a class="text-2xl sm:mr-4 font-semibold w-fit" href="/">{APP_NAME}</a>
+	<a class="text-2xl sm:mr-4 font-semibold w-fit" href="/">{WEB_NAME}</a>
 	<div class="flex flex-wrap max-sm:mt-2 max-sm:[grid-area:2/1/2/3]">
 		{#each categories as { category, categorySlug }}
 			<a
@@ -44,8 +42,8 @@
 <slot />
 
 <footer class="mt-auto text-sm text-disabled flex px-4 py-3 border-t justify-between">
-	<a class="underline hover:text-contrast" href={PUBLIC_CONTACT_LINK ?? '#'} target="_blank">
-		{`🔗 ${APP_NAME}`}
+	<a class="underline hover:text-contrast" href={CONTACT_LINK ?? '#'} target="_blank">
+		{`🔗 ${WEB_NAME}`}
 	</a>
 	<p>
 		Developed by <a class="underline hover:text-contrast" href="https://moloxe.io" target="_blank">

@@ -1,8 +1,8 @@
-import { PUBLIC_CONTACT_PHONE } from '$env/static/public';
 import { marked } from 'marked';
 import slugify from 'slugify';
 import type { Product } from '../../types/product';
 import { getPartialProducts } from './partial-products';
+import { CONTACT_PHONE } from './web-info';
 
 export const products: Product[] = getPartialProducts()
 	.map((p) => {
@@ -11,7 +11,7 @@ export const products: Product[] = getPartialProducts()
 		const product = {
 			...p,
 			path,
-			buyUrl: `https://wa.me/${PUBLIC_CONTACT_PHONE}?text=${encodeURIComponent(
+			buyUrl: `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(
 				'Hola, quisiera consultar la disponibilidad de '
 			)}${p.name}`,
 			description
