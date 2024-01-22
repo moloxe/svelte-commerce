@@ -2,7 +2,7 @@
 	import '../app.css';
 	import '../theme.css';
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';
-	import { WEB_NAME, CONTACT_LINK } from '$lib/data/web-info';
+	import { WEB_NAME, CONTACT_LINK, WEB_ICON } from '$lib/data/web-info';
 	export let data;
 	$: categories = data.categories;
 	$: curProductName = data.curProductName;
@@ -11,6 +11,10 @@
 </script>
 
 <svelte:head>
+	<link
+		rel="icon"
+		href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${WEB_ICON}</text></svg>`}
+	/>
 	<title>
 		{`${curProductName || curCategory ? `${curProductName ?? curCategory} | ` : ''}${WEB_NAME}`}
 	</title>
