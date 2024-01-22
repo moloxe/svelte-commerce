@@ -1,14 +1,20 @@
 <script lang="ts">
-	import '$lib/plugins';
-	import '../app.css';
-	import '../theme.css';
+	import { onMount } from 'svelte';
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';
 	import { WEB_NAME, CONTACT_LINK, WEB_ICON } from '$lib/data/web-info';
+	import '../app.css';
+	import '../theme.css';
+
 	export let data;
+
 	$: categories = data.categories;
 	$: curProductName = data.curProductName;
 	$: curCategory = data.curCategory;
 	$: curCategorySlug = data.curCategorySlug;
+
+	onMount(() => {
+		import('$lib/plugins');
+	});
 </script>
 
 <svelte:head>
