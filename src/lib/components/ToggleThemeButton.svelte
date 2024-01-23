@@ -8,10 +8,12 @@
 			if (theme === 'dark') {
 				document.documentElement.classList.add('dark');
 				document.documentElement.classList.remove('light');
+				document.documentElement.style.setProperty('color-scheme', 'dark');
 			}
 			if (theme === 'light') {
 				document.documentElement.classList.add('light');
 				document.documentElement.classList.remove('dark');
+				document.documentElement.style.setProperty('color-scheme', 'light');
 			}
 		}
 	}
@@ -34,9 +36,9 @@
 </script>
 
 <button
-	class="text-lg"
+	class="grid justify-center items-center w-min"
 	on:click={toggleTheme}
 	title={theme === 'dark' ? 'Make light' : 'Make dark'}
 >
-	{theme === 'dark' ? '🌖' : '🌒'}
+	{theme === 'dark' ? '⚪' : '⚫'}
 </button>
