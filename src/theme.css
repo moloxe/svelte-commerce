@@ -1,18 +1,4 @@
-@tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-@layer base {
-	body {
-		@apply text-[rgb(0,0,0)] bg-neutral-100
-		 dark:text-neutral-100 dark:bg-[rgb(0,0,0)];
-	}
-	*,
-	::after,
-	::before {
-		@apply border-[rgb(0,0,0)] dark:border-neutral-100;
-	}
-}
 
 @layer components {
 	.bg-primary {
@@ -29,5 +15,8 @@
 	}
 	.text-disabled {
 		@apply text-gray-500;
+	}
+	.border-contrast {
+		@apply border-[rgb(0,0,0)] dark:border-neutral-100;
 	}
 }

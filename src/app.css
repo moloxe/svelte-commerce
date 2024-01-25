@@ -1,8 +1,16 @@
+@import './theme.css';
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @layer base {
+	body {
+		@apply text-contrast bg-primary;
+	}
+	*,
+	::after,
+	::before {
+		@apply border-contrast;
+	}
 	h1 {
 		@apply text-3xl font-bold;
 	}

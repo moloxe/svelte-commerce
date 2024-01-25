@@ -4,13 +4,8 @@ Plantilla para e-commerce sin dependencias.
 
 ## Variantes de temas
 
-```json
-{
-    ...
-	"scripts": {
-		"dev": "node generate-theme.js variant && vite dev",
-    ...
-}
+```bash
+node generate-theme.js variant-name
 ```
 
 Variantes disponibles: neutral, red, blue, green, teal, purple y yellow.

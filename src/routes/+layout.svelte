@@ -3,7 +3,6 @@
 	import ToggleThemeButton from '$lib/components/ToggleThemeButton.svelte';
 	import { WEB_NAME, CONTACT_LINK, WEB_ICON } from '$lib/data/web-info';
 	import '../app.css';
-	import '../theme.css';
 
 	export let data;
 

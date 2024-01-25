@@ -22,21 +22,7 @@ const darkColors = {
 	purple: 'purple'
 };
 
-const themeFile = `@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-	body {
-		@apply text-[${lightColors[color]}] bg-${darkColors[color]}-100
-		 dark:text-${darkColors[color]}-100 dark:bg-[${lightColors[color]}];
-	}
-	*,
-	::after,
-	::before {
-		@apply border-[${lightColors[color]}] dark:border-${darkColors[color]}-100;
-	}
-}
+const themeFile = `@tailwind components;
 
 @layer components {
 	.bg-primary {
@@ -53,6 +39,9 @@ const themeFile = `@tailwind base;
 	}
 	.text-disabled {
 		@apply text-gray-500;
+	}
+	.border-contrast {
+		@apply border-[rgb(0,0,0)] dark:border-neutral-100;
 	}
 }
 `;
