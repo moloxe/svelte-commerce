@@ -3,6 +3,8 @@
 
 	export let search: string;
 	export let productNames: string[];
+	export let customClass: string;
+
 	let isCursorActive = false;
 	let placeholder = '';
 
@@ -21,7 +23,6 @@
 					progress++;
 				} else if (!tempShowing) {
 					tempShowing = true;
-					console.log('resetting');
 					setTimeout(() => {
 						progress = 0;
 						placeholder = '';
@@ -44,5 +45,5 @@
 	on:blur={() => (isCursorActive = false)}
 	placeholder={isCursorActive ? '' : placeholder}
 	type="text"
-	class="bg-primary outline-none p-4 text-2xl max-sm:[grid-area:1/1/1/2] [grid-area:1/1/1/3]"
+	class={`${customClass} bg-primary outline-none p-4 text-2xl`}
 />

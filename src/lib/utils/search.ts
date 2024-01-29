@@ -9,17 +9,21 @@ function jaccardSimilarity(str1: string, str2: string) {
 export function lazySearch(data: { [key: string]: string }[], term: string, gap: number) {
 	const lowerTerm = term.toLowerCase();
 
-	const coincidences = data
-		.filter((object) => {
+	const indexes = data
+		.map((object, index) => {
+			let maxSimilitud = 0;
 			for (const prop in object) {
 				const similitud = jaccardSimilarity(lowerTerm, object[prop].toString().toLowerCase());
-				if (similitud > gap) {
-					return true;
-				}
+				maxSimilitud = Math.max(maxSimilitud, similitud);
 			}
-			return false;
+			return {
+				index,
+				maxSimilitud
+			};
 		})
-		.map((_, index) => index);
+		.toSorted((a, b) => b.maxSimilitud - a.maxSimilitud)
+		.filter((similitud) => similitud.maxSimilitud > gap)
+		.map((similitud) => similitud.index);
 
-	return coincidences;
+	return indexes;
 }

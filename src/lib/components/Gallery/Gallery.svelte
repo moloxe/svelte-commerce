@@ -24,8 +24,22 @@
 </script>
 
 <div class="grid max-sm:grid-cols-1 grid-cols-2">
-	<GalleryInput bind:search {productNames} />
+	<GalleryInput
+		customClass="max-sm:[grid-area:1/1/1/2] [grid-area:1/1/1/3]"
+		bind:search
+		{productNames}
+	/>
 	{#each filteredProducts as product}
 		<ProductCard {product} />
 	{/each}
+	{#if filteredProducts.length === 0}
+		<p
+			class={`
+			max-sm:[grid-area:2/1/2/2] [grid-area:2/1/2/3]
+			text-center text-2xl border-t px-4 py-20
+		`}
+		>
+			No se encontraron resultados.
+		</p>
+	{/if}
 </div>
