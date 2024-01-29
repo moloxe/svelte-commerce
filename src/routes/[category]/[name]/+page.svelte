@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { getDeadlineFromProduct, getPriceFromProduct } from '$lib/utils/products.js';
 	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
 	export let data;
 	$: product = data.product;
 	let photos = data.product.photos;
-	$: priceText = getPriceFromProduct(product);
-	$: deadline = getDeadlineFromProduct(product);
 </script>
 
 <div class="relative flex max-sm:flex-col-reverse">
@@ -16,14 +13,9 @@
 		<div class="flex flex-col sm:sticky top-0 p-4 h-fit">
 			<span class="text-disabled">{product.category}</span>
 			<h1>{product.name}</h1>
-			{#if priceText}
+			{#if product.price}
 				<p>
-					{priceText}
-					{#if deadline}
-						<span class="text-disabled">
-							{`(oferta hasta ${deadline})`}
-						</span>
-					{/if}
+					{product.price}
 				</p>
 			{/if}
 			<div class="my-4">{@html product.description}</div>

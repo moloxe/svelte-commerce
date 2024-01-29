@@ -5,17 +5,7 @@ export type Product = {
 	photos: string[];
 	path: string;
 	buyUrl: string;
-	price?: {
-		currency: string;
-		range: {
-			min: number;
-			max: number;
-		};
-		current?: {
-			amount: number;
-			deadline: string;
-		};
-	};
+	price?: string;
 };
 
 export type PartialProduct = Pick<
