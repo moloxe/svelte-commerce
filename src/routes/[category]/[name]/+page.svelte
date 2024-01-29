@@ -27,10 +27,10 @@
 				<p
 					class="p-4 text-center w-full h-full transition duration-300 ease-in-out hover:scale-110"
 				>
-					Comprar
+					Consultar
 				</p>
 			</a>
-			<span class="text-sm text-disabled mt-1">*Consultar disponibilidad</span>
+			<span class="text-sm text-disabled mt-1">*Precio referencial, consultar disponibilidad.</span>
 		</div>
 	</div>
 </div>
