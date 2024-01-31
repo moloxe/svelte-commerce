@@ -23,9 +23,9 @@
 		: products;
 </script>
 
-<div class="grid max-sm:grid-cols-1 grid-cols-2">
+<div class="grid max-sm:grid-cols-1 max-md:grid-cols-2 grid-cols-3">
 	<GalleryInput
-		customClass="max-sm:[grid-area:1/1/1/2] [grid-area:1/1/1/3]"
+		customClass="max-sm:[grid-area:1/1/1/2] max-md:[grid-area:1/1/1/3] [grid-area:1/1/1/4]"
 		bind:search
 		{productNames}
 	/>
