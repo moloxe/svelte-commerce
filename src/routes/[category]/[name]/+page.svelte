@@ -3,7 +3,25 @@
 	export let data;
 	$: product = data.product;
 	let photos = data.product.photos;
+	$: schema = JSON.stringify({
+		'@context': 'http://schema.org/',
+		'@type': 'Product',
+		name: product.name,
+		image: photos[0],
+		description: product.description,
+		category: product.category,
+		offers: {
+			'@type': 'Offer',
+			price: product.price
+		}
+	});
 </script>
+
+<svelte:head>
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content={`${product.name} | ${product.category}`} />
+	{@html `<script type="application/ld+json">${schema}</script>`}
+</svelte:head>
 
 <div class="relative flex max-sm:flex-col-reverse">
 	<div class="flex-[4]">
