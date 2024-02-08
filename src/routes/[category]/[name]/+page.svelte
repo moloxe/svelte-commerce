@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
+	import { parseProductPrice } from '$lib/utils/product.js';
 	export let data;
 	$: product = data.product;
 	let photos = data.product.photos;
@@ -12,7 +13,10 @@
 		category: product.category,
 		offers: {
 			'@type': 'Offer',
-			price: product.price
+			priceCurrency: product.price?.currency,
+			highPrice: product.price?.maxAmount,
+			lowPrice: product.price?.minAmount,
+			price: product.price?.amount
 		}
 	});
 </script>
@@ -33,7 +37,7 @@
 			<h1>{product.name}</h1>
 			{#if product.price}
 				<p>
-					{product.price}
+					{parseProductPrice(product)}
 				</p>
 			{/if}
 			<div class="my-4">{@html product.description}</div>

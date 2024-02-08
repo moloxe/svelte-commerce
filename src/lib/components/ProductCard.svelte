@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { parseProductPrice } from '$lib/utils/product';
 	import type { Product } from '../../types/product';
 	export let product: Product;
 </script>
@@ -13,7 +14,7 @@
 		<p class="bg-primary py-1 px-2 w-fit">{product.name}</p>
 		{#if product.price}
 			<p class="bg-primary py-1 px-2 w-fit">
-				{product.price}
+				{parseProductPrice(product)}
 			</p>
 		{/if}
 	</div>

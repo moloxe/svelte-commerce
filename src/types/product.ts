@@ -5,10 +5,11 @@ export type Product = {
 	photos: string[];
 	path: string;
 	buyUrl: string;
-	price?: string;
+	price?: {
+		currency: string;
+		symbol: string;
+		amount?: number;
+		minAmount?: number;
+		maxAmount?: number;
+	};
 };
-
-export type PartialProduct = Pick<
-	Product,
-	'name' | 'category' | 'description' | 'photos' | 'price'
->;

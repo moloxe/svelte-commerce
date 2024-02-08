@@ -1,21 +1,86 @@
 import { marked } from 'marked';
 import slugify from 'slugify';
-import type { Product } from '../../types/product';
-import { getPartialProducts } from './partial-products';
 import { CONTACT_PHONE } from './web-info';
+import type { Product } from '../../types/product';
 
-export const products: Product[] = getPartialProducts()
-	.map((p) => {
-		const path = `/${slugify(p.category)}/${slugify(p.name)}`;
-		const description = marked(p.description) as string;
-		const product = {
-			...p,
+export const products: Product[] = [
+	{
+		name: 'Zapatillas nike',
+		category: 'Calzado',
+		description: `
+- Zapatillas rápidas.
+- A prueba de agua.
+`,
+		photos: ['/img/nike-1.jpg', '/img/nike-2.jpg'],
+		price: {
+			amount: 200
+		}
+	},
+	{
+		name: 'Zapatillas',
+		category: 'Calzado',
+		description: `
+- Zapatillas rápidas.
+- A prueba de agua.
+`,
+		photos: ['/img/nike-2.jpg']
+	},
+	{
+		name: 'Zapatillas adidas',
+		category: 'Calzado',
+		description: `
+- Zapatillas rápidas.
+- A prueba de agua.
+`,
+		photos: ['/img/adidas-1.jpeg', '/img/adidas-2.jpeg'],
+		price: {
+			minAmount: 100,
+			maxAmount: 150
+		}
+	},
+	{
+		name: 'Polo',
+		category: 'Polos',
+		description: `
+- Polo para ejercicios.
+`,
+		photos: ['/img/pantalon-1.jpeg', '/img/pantalon-2.jpeg'],
+		price: {
+			amount: 80
+		}
+	},
+	{
+		name: 'Gorra blanca',
+		category: 'Gorras',
+		description: `
+- Gorra 4k.
+`,
+		photos: ['/img/gorra-1.jpeg', '/img/gorra-2.jpeg'],
+		price: {
+			minAmount: 15,
+			maxAmount: 20
+		}
+	}
+]
+	.map(({ name, category, photos, description, price }) => {
+		const path = `/${slugify(category)}/${slugify(name)}`;
+		description = marked(description) as string;
+		const product: Product = {
+			name,
 			path,
+			category,
+			photos,
 			buyUrl: `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(
 				'Hola, quisiera consultar la disponibilidad de '
-			)}${p.name}`,
+			)}${name}`,
 			description
 		};
+		if (price)
+			product.price = {
+				...price,
+				currency: 'USD',
+				symbol: '$'
+			};
 		return product;
 	})
 	.toSorted((p1, p2) => {
