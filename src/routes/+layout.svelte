@@ -29,15 +29,14 @@
 <header
 	class={`
 		grid
-		px-4 py-3 border-b
+		py-3 px-4 max-sm:px-3
+		border-b
 		grid-cols-[auto,1fr,auto]
 		max-sm:grid-cols-[1fr,auto] max-sm:grid-rows-[auto,auto]
 	`}
 >
 	<a class="text-2xl sm:mr-4 font-semibold w-fit" href="/">{WEB_NAME}</a>
-	<div
-		class="flex flex-wrap items-end max-sm:pt-2 max-sm:mt-2 max-sm:[grid-area:2/1/2/3] max-sm:border-t"
-	>
+	<div class="flex flex-wrap items-end max-sm:pt-2 max-sm:[grid-area:2/1/2/3]">
 		{#each categories as { category, categorySlug }}
 			<a
 				class={`underline mr-2 text-lg max-sm:text-base ${

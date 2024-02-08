@@ -35,7 +35,7 @@
 	{#if filteredProducts.length === 0}
 		<p
 			class={`
-			max-sm:[grid-area:2/1/2/2] [grid-area:2/1/2/3]
+			max-sm:[grid-area:2/1/2/2] [grid-area:2/1/2/4]
 			text-center text-2xl border-t px-4 py-20
 		`}
 		>
