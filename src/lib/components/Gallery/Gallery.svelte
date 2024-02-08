@@ -17,7 +17,9 @@
 	const productNames = products.map((product) => product.name);
 
 	let search = '';
-	$: filteredIndexes = search ? lazySearch(products.map(searchifyProduct), search, 0.3) : null;
+	$: filteredIndexes = search
+		? lazySearch(products.map(searchifyProduct), ['name', 'category', 'description'], search)
+		: null;
 	$: filteredProducts = filteredIndexes
 		? filteredIndexes.map((index) => products[index])
 		: products;
