@@ -1,5 +1,5 @@
 import slugify from 'slugify';
-import { products } from './parsed-products';
+import { products } from './products';
 
 const repeatedCategories = products.flatMap(({ category }) => category);
 export const categories = Array.from(new Set(repeatedCategories))

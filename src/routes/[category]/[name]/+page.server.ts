@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoadEvent } from './$types';
-import { products } from '$lib/data/parsed-products';
+import { products } from '$lib/data/products';
 
 export async function load({ params }: PageServerLoadEvent) {
 	const { category, name } = params;

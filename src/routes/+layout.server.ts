@@ -1,6 +1,6 @@
 import slugify from 'slugify';
 import type { LayoutServerLoadEvent } from './$types';
-import { products } from '$lib/data/parsed-products';
+import { products } from '$lib/data/products';
 import { categories } from '$lib/data/categories-from-products';
 
 export const prerender = true;
