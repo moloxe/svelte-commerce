@@ -1,6 +1,6 @@
-# Dep-less E-commerce
+# Svelte-commerce
 
-Plantilla para e-commerce sin dependencias.
+Plantilla para e-commerce.
 
 ## Variantes de temas
 
