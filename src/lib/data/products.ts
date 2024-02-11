@@ -7,7 +7,7 @@ export const products: Product[] = [
 	{
 		name: 'Zapatillas nike',
 		category: 'Calzado',
-		description: `
+		descriptionMd: `
 - Zapatillas rápidas.
 - A prueba de agua.
 `,
@@ -19,7 +19,7 @@ export const products: Product[] = [
 	{
 		name: 'Zapatillas',
 		category: 'Calzado',
-		description: `
+		descriptionMd: `
 - Zapatillas rápidas.
 - A prueba de agua.
 `,
@@ -28,7 +28,7 @@ export const products: Product[] = [
 	{
 		name: 'Zapatillas adidas',
 		category: 'Calzado',
-		description: `
+		descriptionMd: `
 - Zapatillas rápidas.
 - A prueba de agua.
 `,
@@ -41,7 +41,7 @@ export const products: Product[] = [
 	{
 		name: 'Polo',
 		category: 'Polos',
-		description: `
+		descriptionMd: `
 - Polo para ejercicios.
 `,
 		photos: ['/img/pantalon-1.jpeg', '/img/pantalon-2.jpeg'],
@@ -52,7 +52,7 @@ export const products: Product[] = [
 	{
 		name: 'Gorra blanca',
 		category: 'Gorras',
-		description: `
+		descriptionMd: `
 - Gorra 4k.
 `,
 		photos: ['/img/gorra-1.jpeg', '/img/gorra-2.jpeg'],
@@ -62,18 +62,19 @@ export const products: Product[] = [
 		}
 	}
 ]
-	.map(({ name, category, photos, description, price }) => {
+	.map(({ name, category, photos, descriptionMd, price }) => {
 		const path = `/${slugify(category)}/${slugify(name)}`;
-		description = marked(description) as string;
+		const descriptionHtml = marked(descriptionMd) as string;
 		const product: Product = {
 			name,
 			path,
 			category,
 			photos,
+			descriptionMd,
+			descriptionHtml,
 			buyUrl: `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(
 				'Hola, quisiera consultar la disponibilidad de '
-			)}${name}`,
-			description
+			)}${name}`
 		};
 		if (price)
 			product.price = {

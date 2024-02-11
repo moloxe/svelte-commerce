@@ -1,7 +1,8 @@
 export type Product = {
 	name: string;
 	category: string;
-	description: string;
+	descriptionMd: string;
+	descriptionHtml: string;
 	photos: string[];
 	path: string;
 	buyUrl: string;

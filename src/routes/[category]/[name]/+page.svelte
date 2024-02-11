@@ -9,7 +9,7 @@
 		'@type': 'Product',
 		name: product.name,
 		image: photos[0],
-		description: product.description,
+		description: product.descriptionMd,
 		category: product.category,
 		offers: {
 			'@type': 'Offer',
@@ -40,7 +40,7 @@
 					{parseProductPrice(product)}
 				</p>
 			{/if}
-			<div class="my-4">{@html product.description}</div>
+			<div class="my-4">{@html product.descriptionHtml}</div>
 			<a
 				class="flex overflow-hidden justify-center bg-contrast text-primary text-xl font-bold"
 				href={product.buyUrl}
