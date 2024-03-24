@@ -1,6 +1,6 @@
 # Svelte-commerce
 
-Plantilla para e-commerce.
+Plantilla para e-commerce: restaurantes, alojamientos, tiendas, etc...
 
 ## Variantes de temas
 
