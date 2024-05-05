@@ -2,6 +2,8 @@
 
 Plantilla para e-commerce: restaurantes, alojamientos, tiendas, etc...
 
+Más info en: [Desarrollando e-commerce | Svelte Kit, Typescript y Tailwind](https://moloxe.io/blog/desarrollando-e-commerce-svelte-kit-typescript-y-tailwind)
+
 ## Variantes de temas
 
 ```bash
